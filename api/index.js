@@ -33,7 +33,17 @@ app.post("/api/send", async (req, res) => {
   }
 });
 
-const PORT = process.env.PORT || 3001;
-app.listen(PORT, () => {
-  console.log(`Backend server listening on port ${PORT}`);
-});
+// =================================================================
+// LOGIKA BARU UNTUK DEVELOPMENT LOKAL & PRODUKSI VERCEL
+// =================================================================
+
+// Jalankan server HANYA saat dalam mode development (bukan di Vercel)
+if (process.env.NODE_ENV !== "production") {
+  const PORT = process.env.PORT || 3001;
+  app.listen(PORT, () => {
+    console.log(`Backend server for development listening on port ${PORT}`);
+  });
+}
+
+// EKSPOR APLIKASI UNTUK DIGUNAKAN OLEH VERCEL DI PRODUKSI
+export default app;

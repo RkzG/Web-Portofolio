@@ -22,8 +22,8 @@ export const ContactSection = () => {
     setStatus("Sending...");
 
     try {
-      const apiUrl = `${import.meta.env.VITE_API_BASE_URL}/api/send`;
-      const response = await fetch(apiUrl, {
+      //   const apiUrl = "`${import.meta.env.VITE_API_BASE_URL}/api/send`";
+      const response = await fetch("/api/send", {
         // Endpoint API Anda
         method: "POST",
         headers: {
