@@ -1,0 +1,19 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "api/send.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "package.json",
+      "use": "@vercel/vite"
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/api/send",
+      "destination": "/api/send.js"
+    }
+  ]
+}
